@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>メニュー</title>
+    </head>
+    <body>
+        <div align="center">
+        <h1>メニュー一覧</h1>
+            <h2>${user}さん、ご注文内容をお選びください。</h2>
+
+            <form method="get" action="cart.do">                
+            <table id="datatable" border="1">
+                <tr>
+                <td>wait...</td>
+                </tr>
+            </table>
+            <br>               
+            <input type="submit" name="cart.do" value="注文内容を確認して注文へ進む"/>
+            <br>
+            <div><a href="add_menu.html">メニューの追加</a></div>                            
+            </form><br>
+        </div>
+    </body>
+</html>
