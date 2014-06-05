@@ -29,7 +29,7 @@ public class EditAccountServlet extends HttpServlet {
 		String address = req.getParameter("address");
 		PersistenceManagerFactory factory = PMF.get();
 		PersistenceManager manager = factory.getPersistenceManager();
-		Main data = (Main)manager.getObjectById(Main.class,id);
+		PizzaMain data = (PizzaMain)manager.getObjectById(PizzaMain.class,id);
 		data.setName(name);
 		data.setPassword(password);
 		data.setAddress(address);

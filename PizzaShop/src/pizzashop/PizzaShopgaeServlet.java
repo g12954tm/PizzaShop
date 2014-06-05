@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.*;
 
 import javax.jdo.*;
+import javax.servlet.ServletException;
 import javax.servlet.http.*;
 
 @SuppressWarnings("serial")
@@ -18,27 +19,27 @@ public class PizzaShopgaeServlet extends HttpServlet {
 		req.setCharacterEncoding("utf-8");
 		String param1 = req.getParameter("id");
 		PrintWriter out = resp.getWriter();
-		List<Main> list = null;
-		if (param1 == null || param1 ==""){
-			String query = "select from " + Main.class.getName();
+		List<PizzaMain> list = null;		
+		if (param1 == null || param1 =="") {
+			String query = "select from " + PizzaMain.class.getName();
 			try {
-				list = (List<Main>)manager.newQuery(query).execute();
+				list = (List<PizzaMain>)manager.newQuery(query).execute();
 			} catch(JDOObjectNotFoundException e){}
 		} else {
 			try {
-				Main data = (Main)manager.getObjectById(Main.class,Long.parseLong(param1));
+				PizzaMain data = (PizzaMain)manager.getObjectById(PizzaMain.class,Long.parseLong(param1));
 				list = new ArrayList();
 				list.add(data);
 			} catch(JDOObjectNotFoundException e){}
 		}
 		String res = "[";
-		if (list != null){
-			for(Main data:list){
+		if (list != null) {
+			for(PizzaMain data:list){
 				res += "{id:" + data.getId() + ",password:'" + data.getPassword() + "',name:'" +
 						data.getName() + "',date:'" + data.getDatetime() +
 						"',address:'" + data.getAddress() + "'},";
 			}
-		}
+		}		
 		res += "]";
 		out.println(res);
 		manager.close();

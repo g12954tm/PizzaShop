@@ -2,17 +2,36 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <title>メニュー新規登録</title>
+        <title>注文登録</title>
     </head>
     <body>
-        <h1>メニュー新規登録</h1>
+    <div align="center">
+        <h1>Pizza Shop</h1>
+        
+        <tr><th>No.　　　MENU</th>　　　　<td>PRICE</td></tr>
+                <tr>
+                    <td><hr></td>
+                    <td><hr></td>
+                    <tr><th>1.　　　トマト</th>　　　　<tr>￥50</tr><br>
+                    <tr><th>2.　　　チーズ</th>　　　　<tr>￥50</tr><br>
+                    <tr><th>3.　　　ピーマン</th>　　　<tr>￥50</tr><br>
+                    <tr><th>4.　　　バジル</th>　　　　<tr>￥50</tr><br>
+                    <tr><th>5.　　　サラミ</th>　　　　<tr>￥70</tr><br>
+                </tr>               
+                <tr>
+                    <td><hr></td>
+                    <td><hr></td>
+                </tr>
+                
+        <h5>注文するトッピングを記入して下さい</h5>
         <table>
         <form method="post" action="/add_menu">
-            <tr><th>No:</th><td><input type="text" name="number"></td></tr>
-            <tr><th>商品名:</th><td><input type="text" name="shohim_name"></td></tr>
-            <tr><th>値段:</th><td><input type="text" name="price"></td></tr>
+            <tr><th>No : </th><td><input type="text" name="number"></td></tr>
+            <tr><th>MENU : </th><td><input type="text" name="shohin_name"></td></tr>
+            <tr><th>PRICE : </th><td>￥<input type="text" name="price"></td></tr>
             <tr><th></th><td><input type="submit" value="登録"></td></tr>
         </form>
         </table>
+        </div>
     </body>
 </html>

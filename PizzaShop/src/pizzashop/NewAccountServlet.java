@@ -1,7 +1,6 @@
 package pizzashop;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.*;
 
 import javax.jdo.*;
@@ -28,7 +27,7 @@ public class NewAccountServlet extends HttpServlet {
 		String password = req.getParameter("password");
 		String address = req.getParameter("address");
 		Date date = Calendar.getInstance().getTime();
-		Main data = new Main(name,password,address,date);
+		PizzaMain data = new PizzaMain(name,password,address,date);
 		PersistenceManagerFactory factory = PMF.get();
 		PersistenceManager manager = factory.getPersistenceManager();
 		try {

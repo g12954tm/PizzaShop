@@ -1,25 +1,51 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <title>メニュー</title>
-    </head>
-    <body>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>注文確認ページ</title>
+    <script type="text/javascript" src="lib_menu.js"></script>
+        <script type="text/javascript">
+        <!--
+        function callback(request){
+            var json = eval(request.responseText);
+            var res = '';
+            if (json.length == 1){
+                res += '<tr><td>' + json[0].id +'</td></tr>';
+                res += '<tr><td>' + json[0].number +'</td></tr>';
+                res += '<tr><td>' + json[0].shohin_name +'</td></tr>';
+                res += '<tr><td>' + json[0].price +'</td></tr>';
+            } else {
+                for (var i = 0;i < json.length;i++){
+                    res += '<tr><td><a href="javascript:return false;" onclick="getData(' + json[i].id +');">' + json[i].id + '</a></td>';
+                    res += '<td><a href="' + json[i].number + '">' + json[i].number + '</a></td>' +
+                    '<td><a href="' + json[i].shohin_name + '">' + json[i].shohin_name + '</a></td>' +
+                    '<td><a href="del_menu.html?id=' + json[i].id + '">Delete</td></tr>';
+                }
+            }
+            var obj = document.getElementById("datatable");
+            obj.innerHTML = res;
+        }
+        //-->
+        </script>
+  </head>
+    <body onload="getData(null);">
         <div align="center">
-        <h1>メニュー一覧</h1>
-            <h2>${user}さん、ご注文内容をお選びください。</h2>
-
-            <form method="get" action="cart.do">                
+        <h1>Pizza Shop</h1>
+        <h5>注文した内容を表示します。
+        <br>以下の内容でよろしいですか？</h5>
+                        
             <table id="datatable" border="1">
                 <tr>
                 <td>wait...</td>
                 </tr>
             </table>
-            <br>               
-            <input type="submit" name="cart.do" value="注文内容を確認して注文へ進む"/>
+            
             <br>
-            <div><a href="add_menu.html">メニューの追加</a></div>                            
-            </form><br>
+            <div><a href="add_menu.html">注文選択ページに戻る</a></div> 
+            <br>
+            <div><a href="check.html">確定</a></div> 
+            <br>
         </div>
+        </form>
     </body>
 </html>

@@ -1,6 +1,5 @@
 package pizzashop;
 
-import java.net.URL;
 import java.util.Date;
 
 import javax.jdo.annotations.*;
@@ -9,7 +8,10 @@ import javax.jdo.annotations.*;
 public class Order {
 	@PrimaryKey
 	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
-	private Long number;
+	private Long id;
+	
+	@Persistent
+	private String number;
 
 	@Persistent
 	private String shohin_name;
@@ -20,18 +22,27 @@ public class Order {
 	@Persistent
 	private Date datetime;
 
-	public Order(String shohin_name, String price, Date datetime) {
+	public Order(String number, String shohin_name, String price, Date datetime) {
 		super();
+		this.number = number;
 		this.shohin_name = shohin_name;
 		this.price = price;
 		this.datetime = datetime;
 	}
 
-	public Long getNumber() {
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
+	public String getNumber() {
 		return number;
 	}
 
-	public void setNumber(Long number) {
+	public void setNumber(String number) {
 		this.number = number;
 	}
 

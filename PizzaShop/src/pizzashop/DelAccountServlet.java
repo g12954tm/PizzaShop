@@ -25,7 +25,7 @@ public class DelAccountServlet extends HttpServlet {
 		long id = Long.parseLong(req.getParameter("id"));
 		PersistenceManagerFactory factory = PMF.get();
 		PersistenceManager manager = factory.getPersistenceManager();
-		Main data = (Main)manager.getObjectById(Main.class,id);
+		PizzaMain data = (PizzaMain)manager.getObjectById(PizzaMain.class,id);
 		manager.deletePersistent(data);
 		manager.close();
 		resp.sendRedirect("/index_account.html");

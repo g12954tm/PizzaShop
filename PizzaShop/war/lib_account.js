@@ -19,10 +19,10 @@ function getData(id){
         alert("HttpRequestが取得できませんでした。");
         return;
     }
-    var uri = "/PizzaShop";
-    if (id != null) uri = "/PizzaShop?id=" + id;
+    var uri = "/pizzashop";
+    if (id != null) uri = "/pizzashop?id=" + id;
     request.open("GET",uri,true);
-    request.setRequestHeader("User-Agent","XMLHttpRequest");
+    request.setRequestHeader("User-Agent","XMLHttpRequest");    
     request.onreadystatechange = function(){
         if (request.readyState == 4 && request.status == 200){
             callback(request);
